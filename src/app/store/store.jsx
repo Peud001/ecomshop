@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import ecomReducer, { fetchData } from "../slice/slice";
 import cartReducer, { getTotal } from "../slice/cartSlice";
-import electReducer from "../slice/ElectSlice";
+import electReducer from "../slice/electSlice";
 import jewelReducer from "../slice/jewelSlice";
 import womenCReducer from "../slice/WomenCSlice";
 import menCReducer from "../slice/menCSlice";

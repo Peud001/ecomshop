@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Loading from "./Loading";
 import { addToCart } from "../app/slice/cartSlice";
-import { getWomenC, fetchWomenC } from "../app/slice/WomenCSlice";
+import { getWomenC, fetchWomenC } from "../app/slice/womenCSlice";
 
 const WomenClothing = () => {
 

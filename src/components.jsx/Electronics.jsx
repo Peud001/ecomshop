@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { fetchElect, getElect } from "../app/slice/ElectSlice";
+import { fetchElect, getElect } from "../app/slice/electSlice";
 import Loading from "./Loading";
 import { addToCart } from "../app/slice/cartSlice";
 import { useEffect } from "react";

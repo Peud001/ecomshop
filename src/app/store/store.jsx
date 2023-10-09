@@ -4,7 +4,7 @@ import cartReducer, { getTotal } from "../slice/cartSlice";
 import electReducer from "../slice/electSlice";
 import jewelReducer from "../slice/jewelSlice";
 import womenCReducer from "../slice/womenCSlice";
-import menCReducer from "../slice/menCSlice";
+import menCReducer from "../slice/wenCSlice";
 
 export const store = configureStore({
   reducer: {

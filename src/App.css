@@ -184,7 +184,18 @@ body {
 .item-content:hover .cart-add {
   display: block;
 }
-
+@media (hover : hover){
+  .cart-add {
+    display: block;
+    background: #f68b1e;
+    width: 100%;
+    height: 35px;
+    padding: 5px;
+    font-weight: 600;
+    border: none;
+    color: #fff;
+  }
+}
 .buy-cart p button {
   padding: 4px 10px;
   border: none;

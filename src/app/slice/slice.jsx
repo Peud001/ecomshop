@@ -16,7 +16,8 @@ const initialState = {
     data : [],
     error : null,
     view : [],
-    isOpen : false
+    isOpen : false,
+    searchResult : []
 }
 
 export const ecomSlice = createSlice({
@@ -25,6 +26,9 @@ export const ecomSlice = createSlice({
     reducers:{
         getIsOpen(state, action){
             state.isOpen = action.payload
+        },
+        getSearchData(state, action){
+            state.searchResult = action.payload
         }
     },
     extraReducers(builder){
@@ -45,5 +49,5 @@ export const ecomSlice = createSlice({
 export default ecomSlice.reducer;
 export const getStatus = (state) => state.ecom
 export const getData = (state) => state.ecom
-export const {getIsOpen} = ecomSlice.actions
+export const {getIsOpen, getSearchData} = ecomSlice.actions
 

@@ -12,6 +12,7 @@ import Electronics from "./components.jsx/Electronics";
 import ViewItem from "./components.jsx/ViewItem";
 import Banking from "./components.jsx/Banking";
 import ErrorPath from "./components.jsx/ErrorPath";
+import SearchResult from "./components.jsx/SearchResults";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/women" element={<WomenClothing />} />
             <Route path="/electronics" element={<Electronics />} />
             <Route path="/jewelery" element={<Jewelery />} />
+            <Route path ="/searchResults" element={<SearchResult/>}/>
           </Route>
           <Route path="/cart" element={<Cart />} />
           <Route path="/view" element={<ViewItem />} />

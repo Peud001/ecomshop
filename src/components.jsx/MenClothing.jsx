@@ -2,9 +2,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchMenC, getMenC } from "../app/slice/menCSlice";
 import { useEffect } from "react";
 import Loading from "./Loading";
-import { addToCart } from "../app/slice/cartSlice";
+import { addToCart, getTotal } from "../app/slice/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const MenClothing = () => {
+  const navigate = useNavigate();
   const { menC, status, error } = useSelector(getMenC);
   const dispatch = useDispatch();
 
@@ -13,6 +15,11 @@ const MenClothing = () => {
       dispatch(fetchMenC());
     }
   }, [dispatch, status]);
+
+  const handleClick = (item) => {
+    localStorage.setItem("view", JSON.stringify(item));
+    navigate("/view");
+  };
 
   return (
     <section>
@@ -27,7 +34,7 @@ const MenClothing = () => {
               return (
                 <div key={item.id} className="item-content">
                   <div className="displayed-item">
-                    <div className="items">
+                    <div className="items" onClick={() => handleClick(item)}>
                       <img src={item.image} />
                     </div>
                     <div className="details">
@@ -38,7 +45,10 @@ const MenClothing = () => {
                       </p>
                       <p className="price">${item.price}</p>
                       <button
-                        onClick={() => dispatch(addToCart(item))}
+                        onClick={() => {
+                          dispatch(addToCart(item));
+                          dispatch(getTotal());
+                        }}
                         className="cart-add"
                       >
                         Add to Cart

@@ -8,6 +8,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: #333;
   background: #f2f2f4;
+  height: 100vh;
+  width: 100%;
 }
 /* -------Grid layout------ */
 .layout {
@@ -15,7 +17,6 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 70px auto;
-  gap: 10px;
   grid-template-areas:
     "A A "
     "B B";
@@ -27,8 +28,8 @@ body {
   grid-area: B;
   display: grid;
   grid-template-columns: 210px auto;
-  gap: 10px;
   grid-template-areas: "C D";
+  background: #f8f9fb;
 }
 .layoutA {
   grid-area: C;
@@ -123,8 +124,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  overflow-x: scroll;
-  background-color: #fff;
+  background-color: #f8f9fb;
 }
 .item-content {
   display: flex;
@@ -160,6 +160,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
 }
 .title {
   font-size: 0.8rem;
@@ -447,12 +448,46 @@ body {
   font-size: 0.9rem;
   border: 1px solid #cdc7b7;
   padding: 2px;
-  border-radius: 50px;
+  border-radius: 50%;
   margin: 10px 1px;
+  width: 25px;
+  height: 25px;
+  color: #333;
+}
+
+.search input{
+  width: 400px;
+  height: 40px;
+  padding: 10px;
+  border: 2px solid #f2f2f4;
+  background: #fff;
+  border-radius: 10px 0 0 10px;
+}
+.search input:focus{
+  outline: none;
+  border: 1px solid #f68b1e;
+}
+.search button{
+  height: 40px;
+  padding: 5px;
+  border: none;
+  background: #f2f2f4;
+}
+
+.no-matches{
+  height: calc(100vh - 120px);
+  display : flex;
+  align-items : center;
+  justify-content : center;
+  padding-right: 180px;
 }
 
 @media (max-width: 660px) {
-    .item-container{
+  .search{
+    display: flex;
+    justify-content: center;
+  }
+  .item-container{
     background: #f8f9fb;
   }
   .set-space {
@@ -479,6 +514,7 @@ body {
     grid-area: B;
     display: grid;
     grid-template-columns: auto;
+    grid-template-rows: 0;
     grid-template-areas: "C";
     gap: 0;
   }
@@ -537,4 +573,11 @@ body {
   .active{
     display: none;
   }
+  .no-matches{
+    padding-right: 0;
+  }
+  .search input{
+    width: 160px;
+    padding: 5px;
+      }
 }

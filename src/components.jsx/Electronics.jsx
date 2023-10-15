@@ -1,10 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import { fetchElect, getElect } from "../app/slice/electSlice";
 import Loading from "./Loading";
-import { addToCart } from "../app/slice/cartSlice";
+import { addToCart, getTotal } from "../app/slice/cartSlice";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Electronics = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const { elect, status, error } = useSelector(getElect);
 
@@ -13,6 +15,11 @@ const Electronics = () => {
       dispatch(fetchElect());
     }
   }, [dispatch, status]);
+
+  const handleClick = (item) => {
+    localStorage.setItem("view", JSON.stringify(item));
+    navigate("/view");
+  };
 
   return (
     <section>
@@ -27,7 +34,7 @@ const Electronics = () => {
               return (
                 <div key={item.id} className="item-content">
                   <div className="displayed-item">
-                    <div className="items">
+                    <div className="items" onClick={() => handleClick(item)}>
                       <img src={item.image} />
                     </div>
                     <div className="details">
@@ -38,7 +45,10 @@ const Electronics = () => {
                       </p>
                       <p className="price">${item.price}</p>
                       <button
-                        onClick={() => dispatch(addToCart(item))}
+                        onClick={() => {
+                          dispatch(addToCart(item));
+                          dispatch(getTotal());
+                        }}
                         className="cart-add"
                       >
                         Add to Cart

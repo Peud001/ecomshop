@@ -2,20 +2,20 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getTotal } from "../app/slice/cartSlice";
-import {getIsOpen} from '../app/slice/slice'
+import { getIsOpen } from "../app/slice/slice";
+import Search from "./Search";
 
 const Nav = () => {
   const dispatch = useDispatch();
   const cartQuantity = useSelector((state) => state.cart.cartQuantity);
-  const isOpen = useSelector(state => state.ecom.isOpen)
-
+  const isOpen = useSelector((state) => state.ecom.isOpen);
 
   useEffect(() => {
     dispatch(getTotal());
   }, [cartQuantity, dispatch]);
 
   const toggleHamburger = () => {
-    dispatch(getIsOpen(!isOpen))
+    dispatch(getIsOpen(!isOpen));
   };
 
   return (
@@ -30,6 +30,7 @@ const Nav = () => {
         <Link to="/" className="logo">
           <img src="ecom.png" />
         </Link>
+        <Search />
         <div className="logo-cart">
           <Link to="/cart" className="cart">
             <img src="cart.png" />
